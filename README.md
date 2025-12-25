@@ -1,22 +1,14 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
-<h3 align="center">Image To Text</h3>
-<p align="center"><strong><code>@capacitor-community/image-to-text</code></strong></p>
+<h3 align="center">Capacitor OCR</h3>
+<p align="center"><strong><code>@carviz/capacitor-ocr</code></strong></p>
 <p align="center">
   Capacitor plugin for image to text processing using Apple's Vision Framework for iOS and MLKit's Vision Framework for Android.</a>.
 </p>
 
-## Credits
-
-This project was forked from the [Cap ML](https://github.com/bendyworks/cap-ml) plugin written by Vennela Kodali. It was refactored and converted to Capacitor 4.
-
-- For Capacitor 4 projects use v4.x
-- For Capacitor 5 projects use v5.x
-- For Capacitor 6 projects use v6.x
-
 ## Installation
 
 ```
-npm install @capacitor-community/image-to-text
+npm install @carviz/capacitor-ocr
 ```
 
 ## Usage
@@ -26,7 +18,7 @@ There is one method `detectText` that takes a filename of an image and will retu
 Add the following to your application:
 
 ```typescript
-import { Ocr, TextDetections } from '@capacitor-community/image-to-text';
+import { Ocr, TextDetections } from '@carviz/capacitor-ocr';
 
 ...
 
@@ -44,7 +36,7 @@ You can use the [`@capacitor/camera`](https://capacitorjs.com/docs/apis/camera) 
 
 ```
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { Ocr, TextDetections } from '@capacitor-community/image-to-text';
+import { Ocr, TextDetections } from '@carviz/capacitor-ocr';
 ```
 
 ...

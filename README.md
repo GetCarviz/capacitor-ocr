@@ -7,9 +7,29 @@
 
 ## Installation
 
-```
-npm install @getcarviz/capacitor-ocr
-```
+This package is published on GitHub Packages, which always requires a token, even to install.
+
+1. Give your GitHub CLI token access to packages, then expose it to npm/pnpm (e.g. in `~/.zshrc`):
+
+   ```bash
+   gh auth refresh -s write:packages      # write:packages includes read
+   export NODE_AUTH_TOKEN="$(gh auth token 2>/dev/null)"
+   ```
+
+2. Add an `.npmrc` to the consuming project (safe to commit, it only references the variable):
+
+   ```
+   @getcarviz:registry=https://npm.pkg.github.com
+   //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+   ```
+
+3. Install:
+
+   ```
+   npm install @getcarviz/capacitor-ocr
+   ```
+
+Check your setup with `npm whoami --registry=https://npm.pkg.github.com`. In GitHub Actions, use `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` with `permissions: packages: read`, and grant the consuming repo read access in the package settings (**Manage Actions access**).
 
 ## Usage
 
@@ -182,6 +202,29 @@ iOS and Android are supported. Web is not.
 | On-Device                        | Yes                         | Yes                                                                                                                  |
 | SDK/ios Version                  | ios 13.0 or newer           | Targets API level >= 16<br>Uses Gradle >= 4.1<br>com.android.tools.build:gradle >= v3.2.1<br>compileSdkVersion >= 28 |
 |                                  |                             |                                                                                                                      |
+
+## Publishing
+
+Releases are published to GitHub Packages by the **Publish Released Package** workflow, using `GITHUB_TOKEN`.
+
+1. Bump `version` in `package.json` (e.g. `npm version patch --no-git-tag-version`) and merge it into `master`.
+2. Create a GitHub release with the matching tag (e.g. `v8.0.2`) on `master`. Leave **Set as a pre-release** unchecked: the workflow only runs on full releases.
+3. Check that the workflow passes and that the new version shows up under **Packages** on the repo page.
+
+A published version can't be overwritten: fix forward with a new version.
+
+### Testing a pre-release
+
+To try a build without using up the final version number, publish a pre-release from your machine (with the `.npmrc` and token from [Installation](#installation)):
+
+```bash
+npm version 8.0.2-beta.0 --no-git-tag-version   # next attempt: npm version prerelease --preid beta --no-git-tag-version
+npm install --ignore-scripts
+npm publish --tag beta                           # prepublishOnly builds dist/ first
+git restore package.json package-lock.json dist README.md
+```
+
+`^8.0.2` ranges never resolve to a pre-release; install it explicitly with `@getcarviz/capacitor-ocr@beta`.
 
 ## License
 

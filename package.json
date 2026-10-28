@@ -10,7 +10,7 @@
     "dist/",
     "ios/",
     "android/",
-    "CarvizCapacitorOcr.podspec"
+    "GetcarvizCapacitorOcr.podspec"
   ],
   "keywords": [
     "capacitor",

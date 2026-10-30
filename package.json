@@ -1,5 +1,5 @@
 {
-  "name": "@carviz/capacitor-ocr",
+  "name": "@getcarviz/capacitor-ocr",
   "version": "8.0.1",
   "description": "Image to Text (OCR) Plugin for Capacitor",
   "main": "dist/plugin.cjs.js",
@@ -10,7 +10,7 @@
     "dist/",
     "ios/",
     "android/",
-    "CarvizCapacitorOcr.podspec"
+    "GetcarvizCapacitorOcr.podspec"
   ],
   "keywords": [
     "capacitor",
@@ -38,6 +38,9 @@
   },
   "author": "Evan Barberousse",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@capacitor/android": "^8.0.0",
     "@capacitor/core": "^8.0.0",
@@ -72,9 +75,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:carviz/capacitor-ocr"
+    "url": "git+https://github.com/GetCarviz/capacitor-ocr.git"
   },
   "bugs": {
-    "url": "git@github.com:carviz/capacitor-ocr/issues"
+    "url": "https://github.com/GetCarviz/capacitor-ocr/issues"
   }
 }

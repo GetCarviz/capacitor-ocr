@@ -1,6 +1,6 @@
 {
   "name": "@getcarviz/capacitor-ocr",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "Image to Text (OCR) Plugin for Capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

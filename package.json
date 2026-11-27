@@ -10,7 +10,8 @@
     "dist/",
     "ios/",
     "android/",
-    "GetcarvizCapacitorOcr.podspec"
+    "GetcarvizCapacitorOcr.podspec",
+    "Package.swift"
   ],
   "keywords": [
     "capacitor",
